@@ -1,11 +1,16 @@
 package com.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class UserInfo {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	//@SequenceGenerator(name  = "bookid_gen",sequenceName = "bookid_seq")
 	private int id;
 	private String name;
 	private String password;
@@ -14,9 +19,9 @@ public class UserInfo {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public UserInfo(int id, String name, String password, String emailid) {
+	public UserInfo(String name, String password, String emailid) {
 		super();
-		this.id = id;
+
 		this.name = name;
 		this.password = password;
 		this.emailid = emailid;
